@@ -17,6 +17,30 @@ void IncreaseSize(SeqList& L, int len) {
 	}
 	free(p);
 };
+/*
+* 插入顺序表(顺序表)
+* i>=1
+*/
+bool ListInsert(SeqList& L, int i, ElemType e) {
+	if (i<1 || i>L.length + 1) {
+		return false;
+	}
+	if (L.length >= L.MaxSize) {
+		return false;
+	}
+	//错误写法 i的意思是在第几位进行插入，而不是在第几位之后进行插入
+	/*for (int j = L.length - 1; j >= i; j--) {
+		L.data[j + 1] = L.data[j];
+	}
+	L.data[i] = e;*/
+	//正确写法：
+	for (int j = L.length; j >= i; j--) {
+		L.data[j] = L.data[j - 1];
+	}
+	L.data[i - 1] = e;
+	L.length++;
+	return true;
+}
 //打印线性表
 void PrintList(SeqList& L) {
 	for (int i = 0; i < L.length; i++) {

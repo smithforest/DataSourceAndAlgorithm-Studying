@@ -11,6 +11,11 @@ typedef struct {
 void InitList(SeqList& L);
 //增加动态数组长度
 void IncreaseSize(SeqList& L, int len);
+/*
+* 插入顺序表(顺序表)
+* i>=1
+*/
+bool ListInsert(SeqList& L, int i, ElemType e);
 //打印线性表
 void PrintList(SeqList& L);
 
