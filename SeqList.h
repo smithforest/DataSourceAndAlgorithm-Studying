@@ -19,3 +19,4 @@ bool ListInsert(SeqList& L, int i, ElemType e);
 //打印线性表
 void PrintList(SeqList& L);
 
+
