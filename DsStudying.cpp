@@ -8,4 +8,5 @@ int main() {
 		ListInsert(L, i, i);
 	}
 	PrintList(L);
+	printf("%d", LocateElem(L, 1));
 }

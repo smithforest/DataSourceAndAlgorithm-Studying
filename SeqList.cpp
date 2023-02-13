@@ -7,6 +7,7 @@ void InitList(SeqList& L) {
 	L.MaxSize = InitSize;
 	L.length = 0;
 };
+
 //增加动态数组长度
 void IncreaseSize(SeqList& L, int len) {
 	ElemType* p = L.data;
@@ -17,6 +18,7 @@ void IncreaseSize(SeqList& L, int len) {
 	}
 	free(p);
 };
+
 /*
 * 插入顺序表(顺序表)
 * i>=1
@@ -32,7 +34,7 @@ bool ListInsert(SeqList& L, int i, ElemType e) {
 	/*for (int j = L.length - 1; j >= i; j--) {
 		L.data[j + 1] = L.data[j];
 	}
-	L.data[i] = e;*/
+	L.data[i] = e;*/      
 	//正确写法：
 	for (int j = L.length; j >= i; j--) {
 		L.data[j] = L.data[j - 1];
@@ -41,6 +43,7 @@ bool ListInsert(SeqList& L, int i, ElemType e) {
 	L.length++;
 	return true;
 }
+
 //顺序表删除
 bool ListDelete(SeqList& L, int i, ElemType& e) {
 	if (i<1 || i>L.length) {
@@ -53,6 +56,24 @@ bool ListDelete(SeqList& L, int i, ElemType& e) {
 	}
 	L.length--;
 	return true;
+}
+
+//按值查找
+ElemType GetElem(SeqList&L,int i){
+	if (i<1 || i>L.length) {
+		return NULL;
+	}
+	return L.data[i - 1];
+}
+//按位查找
+int LocateElem(SeqList&L,ElemType e) {
+	int result = -1;
+	for (int i = 0; i < L.length; i++) {
+		if (e == L.data[i]) {
+			result = i + 1;
+		}
+	}
+	return result;
 }
 //打印线性表
 void PrintList(SeqList& L) {
