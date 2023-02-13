@@ -7,6 +7,7 @@ typedef struct {
 	//顺序表的当前长度
 	int length;
 }SeqList;
+
 //初始化顺序表
 void InitList(SeqList& L);
 //增加动态数组长度
