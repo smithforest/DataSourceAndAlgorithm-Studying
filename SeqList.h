@@ -1,3 +1,4 @@
+//Ë³Ðò±í
 #define InitSize 10
 typedef int  ElemType;
 typedef struct {
