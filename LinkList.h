@@ -13,6 +13,8 @@ bool isEmpty(LinkList& L);
 bool ListInsert(LinkList L, int i, ElemType e);
 //按位序插入（不带头节点）
 bool ListInsertWithoutHeader(LinkList& L, int i, ElemType e);
+//在p节点之前插入e元素
+bool InsertPreNode(LNode* p, ElemType e);
 //在p节点后面插入e元素
 bool InsertNextNode(LNode* p, ElemType e);
 

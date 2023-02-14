@@ -47,6 +47,7 @@ bool ListInsertWithoutHeader(LinkList& L, int i, ElemType e) {
 	while (p != NULL && j < i - 1)
 	{
 		p = p->next;
+		j++;
 	}
 	if (p == NULL) {
 		return false;
@@ -54,6 +55,38 @@ bool ListInsertWithoutHeader(LinkList& L, int i, ElemType e) {
 	//在p节点之后插入e元素
 	return InsertNextNode(p, e);
 }
+//按位序删除（带头节点）
+bool ListDelete(LinkList&L,int i,ElemType&e) {
+	LNode* p = L;
+	int j = 0;
+	while (p!=NULL&j<i-1)
+	{
+		p = p->next;
+		j++;
+	}
+	if (p == NULL) {
+		return false;
+	}
+	LNode* q = p->next;
+	p->next =q->next;
+	free(q);
+	return true;
+}
+//在p节点之前插入e元素
+bool InsertPreNode(LNode* p, ElemType e) {
+	if (p == NULL) {
+		return false;
+	}
+	LNode* s = (LNode*)malloc(sizeof(LNode));
+	if (s == NULL) {
+		return false;
+	}
+	s->data = p->data;
+	p->data = e;
+	s->next = p->next;
+	p->next = s;
+	return true;
+};
 //在p节点后面插入e元素
 bool InsertNextNode(LNode* p, ElemType e) {
 	if (p == NULL) {
