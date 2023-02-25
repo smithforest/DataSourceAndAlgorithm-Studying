@@ -1,12 +1,17 @@
 ﻿#include<stdio.h>
+#include<stdlib.h>
 #include"SeqList.h"
-
+#include"LinkList.h"
 int main() {
-	SeqList L;
-	InitList(L);
-	for (int i = 1; i <= 4; i++) {
-		ListInsert(L, i, i);
+	//带头节点的尾插法
+	ElemType arrays[] = { 1,2,3,4,5,6 };
+	printLinkWithHeader(List_LastInsert(arrays,sizeof(arrays)/sizeof(ElemType)));
+	LNode* p = (LNode*)malloc(sizeof(LNode));
+	if (p->next == NULL) {
+		printf("%d", p->data);
 	}
-	PrintList(L);
-	printf("%d", LocateElem(L, 1));
+	else {
+		printf("%d", 1);
+	}
+
 }
